@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kilis Fotoğrafları | KilisTava</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f1eb;
+    color:#29251f;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(30,27,23,.96);
+    backdrop-filter:blur(10px);
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.18);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.navbar a{
+    color:#ddd;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#d6a756;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:390px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:60px 20px;
+
+    background:
+        linear-gradient(rgba(20,17,13,.55),rgba(20,17,13,.82)),
+        url("kilis1.jpg") center/cover;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:30px;
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:18px;
+    background:rgba(255,255,255,.08);
+}
+
+.hero h1{
+    font-size:58px;
+    letter-spacing:-2px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#eee;
+    font-size:18px;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+
+/* INTRO */
+
+.intro{
+    margin-top:-55px;
+    position:relative;
+    background:white;
+    border-radius:22px;
+    padding:38px;
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
+}
+
+.intro h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.intro p{
+    color:#666;
+}
+
+
+/* SECTION */
+
+.section{
+    padding:75px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:42px;
+}
+
+.section-title span{
+    color:#a8782d;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-top:7px;
+}
+
+.section-title p{
+    color:#777;
+    max-width:650px;
+    margin:10px auto;
+}
+
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:230px;
+    gap:18px;
+}
+
+
+/* BÜYÜK FOTO */
+
+.photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    background:#222;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.6s;
+}
+
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+
+/* FOTO YAZISI */
+
+.photo-info{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:55px 22px 20px;
+
+    background:
+        linear-gradient(transparent,rgba(0,0,0,.85));
+
+    color:white;
+    transform:translateY(4px);
+    transition:.3s;
+}
+
+.photo:hover .photo-info{
+    transform:translateY(0);
+}
+
+.photo-info span{
+    color:#d6a756;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+}
+
+.photo-info h3{
+    font-size:23px;
+    margin-top:3px;
+}
+
+
+/* GRID YERLEŞİMİ */
+
+.photo:nth-child(1){
+    grid-column:span 7;
+    grid-row:span 2;
+}
+
+.photo:nth-child(2){
+    grid-column:span 5;
+}
+
+.photo:nth-child(3){
+    grid-column:span 5;
+}
+
+.photo:nth-child(4){
+    grid-column:span 12;
+    grid-row:span 1;
+}
+
+
+/* ALT BÖLÜM */
+
+.feature{
+    margin:20px 0 80px;
+    background:#29251f;
+    color:white;
+    border-radius:25px;
+    padding:45px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.feature-text{
+    max-width:700px;
+}
+
+.feature-text span{
+    color:#d6a756;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.feature-text h2{
+    font-size:32px;
+    margin:8px 0 10px;
+}
+
+.feature-text p{
+    color:#ccc;
+}
+
+.back-button{
+    display:inline-block;
+    padding:13px 22px;
+    background:#a8782d;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    white-space:nowrap;
+    transition:.3s;
+}
+
+.back-button:hover{
+    background:#c18f3e;
+    transform:translateY(-3px);
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#211e1a;
+    color:#aaa;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer strong{
+    color:white;
+}
+
+
+/* MOBİL */
+
+@media(max-width:800px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .navbar div:last-child a{
+        margin-left:7px;
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:350px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .intro{
+        margin-top:-35px;
+        padding:27px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .gallery{
+        display:grid;
+        grid-template-columns:1fr;
+        grid-auto-rows:260px;
+    }
+
+    .photo:nth-child(1),
+    .photo:nth-child(2),
+    .photo:nth-child(3),
+    .photo:nth-child(4){
+        grid-column:span 1;
+        grid-row:span 1;
+    }
+
+    .photo:nth-child(1){
+        height:320px;
+    }
+
+    .feature{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        KilisTava
+    </a>
+
+    <div>
+
+        <a href="index.html">Ana Menü</a>
+
+        <a href="mutfak.html">Mutfak</a>
+
+        <a href="tarih.html">Tarih</a>
+
+        <a href="sosyal.html">Sosyal</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            📸 KİLİS • FOTOĞRAF GALERİSİ
+        </div>
+
+        <h1>Kilis'ten Kareler</h1>
+
+        <p>
+            Kilis'in sokaklarından tarihi yapılarına,
+            şehrin farklı yüzlerinden seçilmiş kareler.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <h2>Şehri Fotoğraflarla Keşfet</h2>
+
+    <p>
+        Kilis; tarihi yapıları, geleneksel evleri, doğal güzellikleri
+        ve kendine özgü şehir dokusuyla fotoğraflanacak birçok
+        farklı noktaya sahip.
+    </p>
+
+</section>
+
+
+<!-- GALERİ -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>GÖRSEL ARŞİV</span>
+
+        <h2>Kilis'ten Kareler</h2>
+
+        <p>
+            Şehrin farklı noktalarından seçilmiş fotoğraflar.
+        </p>
+
+    </div>
+
+
+    < class="gallery">
+
+
+        <!-- 1 -->
+
+        <div class="photo">
+
+            <img src="kilis1.jpg" alt="Kilis">
+
+            <div class="photo-info">
+
+                <span>KİLİS</span>
+
+                <h3>Şehrin Kalbinden</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="photo">
+
+            <img src="kilis2.jpg" alt="Kilis görüntüsü">
+
+            <div class="photo-info">
+
+                <span>ŞEHİR DOKUSU</span>
+
+                <h3>Kilis'ten Bir Kare</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="photo">
+
+            <img src="kilis3.jpg" alt="Kilis görüntüsü">
+
+            <div class="photo-info">
+
+                <span>KÜLTÜR</span>
+
+                <h3>Kilis'in İzleri</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="photo">
+
+            <img src="kilis4.jpg" alt="Kilis görüntüsü">
+
+            <div class="photo-info">
+
+                <span>KEŞFET</span>
+
+                <h3>Kilis'in Farklı Bir Yüzü</h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ALT BÖLÜM -->
+
+<section class="feature">
+
+    <div class="feature-text">
+
+        <span>KİLİS'İ KEŞFET</span>
+
+        <h2>Bir Fotoğraf, Bir Hikâye.</h2>
+
+        <p>
+            Kilis'in tarihi sokakları, geleneksel yapıları ve
+            doğal güzellikleri şehrin geçmişinden günümüze
+            uzanan hikâyesini yansıtıyor.
+        </p>
+
+    </div>
+
+
+    <a href="index.html" class="back-button">
+        ← Ana Menü
+    </a>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        <strong>KilisTava</strong> • Kilis'i keşfet.
+    </p>
+
+    <p>
+        © 2026 KilisTava
+    </p>
+
+</footer>
+
+
+</body>
+</html>

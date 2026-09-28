@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KilisTava | Kilis'i Keşfet</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f1eb;
+    color:#29251f;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 40px);
+    max-width:1180px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 14px 0 28px;
+
+    background:rgba(31,28,24,.90);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.20);
+
+    z-index:1000;
+}
+
+.logo{
+    color:#fff;
+    text-decoration:none;
+    font-family:Georgia, serif;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#d6a756;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.nav-links a{
+    color:#ddd8d0;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+
+    padding:11px 14px;
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+    background:rgba(255,255,255,.07);
+}
+
+.nav-links .active{
+    color:#fff;
+}
+
+.nav-links .active::after{
+    content:"";
+    display:block;
+    height:2px;
+    margin-top:4px;
+    background:#d6a756;
+    border-radius:10px;
+}
+
+.social-btn{
+    background:#d6a756 !important;
+    color:#211e1a !important;
+    font-weight:bold !important;
+    margin-left:5px;
+}
+
+.social-btn:hover{
+    background:#e4bd76 !important;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.menu-toggle{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+
+    color:white;
+    border-radius:12px;
+
+    font-size:21px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:760px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(19,16,13,.88) 0%,
+            rgba(19,16,13,.58) 48%,
+            rgba(19,16,13,.20) 100%
+        ),
+        url("kilis-manzara.jpg") center/cover no-repeat;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1180px;
+
+    margin:auto;
+    padding:130px 25px 70px;
+
+    color:white;
+}
+
+.location{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:9px 14px;
+
+    border:1px solid rgba(255,255,255,.20);
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+
+    border-radius:50px;
+
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+}
+
+.hero h1{
+    margin-top:24px;
+
+    font-family:Georgia, serif;
+    font-size:clamp(65px,10vw,125px);
+    line-height:.85;
+
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#d6a756;
+}
+
+.hero-description{
+    max-width:580px;
+
+    margin-top:28px;
+
+    color:#e5dfd7;
+
+    font-size:18px;
+    line-height:1.75;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+
+    margin-top:34px;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.primary-btn{
+    background:#d6a756;
+    color:#211e1a;
+}
+
+.primary-btn:hover{
+    background:#e5bd76;
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    color:white;
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+}
+
+.secondary-btn:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateY(-3px);
+}
+
+/* ================= INTRO ================= */
+
+.intro{
+    padding:100px 20px 55px;
+}
+
+.container{
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+}
+
+.intro-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+
+    gap:40px;
+}
+
+.small-title{
+    color:#a8782d;
+
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.intro h2{
+    font-family:Georgia, serif;
+
+    font-size:clamp(36px,5vw,56px);
+    line-height:1.05;
+}
+
+.intro-text{
+    max-width:500px;
+
+    color:#686158;
+
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* ================= CARDS ================= */
+
+.explore{
+    padding:25px 20px 100px;
+}
+
+.cards{
+    display:grid;
+
+    grid-template-columns:repeat(12,1fr);
+
+    gap:18px;
+}
+
+/* CARD */
+
+.card{
+    position:relative;
+
+    min-height:370px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#222;
+
+    text-decoration:none;
+
+    box-shadow:0 12px 35px rgba(38,31,23,.12);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 55px rgba(38,31,23,.20);
+}
+
+.card:nth-child(1){
+    grid-column:span 7;
+    min-height:470px;
+}
+
+.card:nth-child(2){
+    grid-column:span 5;
+    min-height:470px;
+}
+
+.card:nth-child(3),
+.card:nth-child(4),
+.card:nth-child(5){
+    grid-column:span 4;
+    min-height:350px;
+}
+
+.card img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .7s ease;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+/* overlay */
+
+.card::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.02) 20%,
+            rgba(0,0,0,.20) 45%,
+            rgba(0,0,0,.86) 100%
+        );
+}
+
+/* CARD CONTENT */
+
+.card-content{
+    position:absolute;
+
+    left:26px;
+    right:26px;
+    bottom:24px;
+
+    z-index:2;
+
+    color:white;
+}
+
+.card-number{
+    color:#d6a756;
+
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+}
+
+.card h3{
+    font-family:Georgia, serif;
+
+    font-size:30px;
+    line-height:1.1;
+
+    margin-bottom:9px;
+}
+
+.card p{
+    max-width:420px;
+
+    color:#ddd8d1;
+
+    font-size:14px;
+    line-height:1.6;
+}
+
+.card-arrow{
+    position:absolute;
+
+    right:24px;
+    bottom:24px;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+
+    color:white;
+
+    transition:.3s;
+}
+
+.card:hover .card-arrow{
+    background:#d6a756;
+    color:#211e1a;
+    transform:rotate(-45deg);
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+    padding:100px 20px;
+
+    background:#211e1a;
+
+    color:white;
+
+    text-align:center;
+}
+
+.quote-inner{
+    max-width:850px;
+    margin:auto;
+}
+
+.quote-mark{
+    color:#d6a756;
+
+    font-family:Georgia, serif;
+    font-size:70px;
+
+    line-height:.5;
+
+    margin-bottom:25px;
+}
+
+.quote h2{
+    font-family:Georgia, serif;
+
+    font-size:clamp(32px,5vw,52px);
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+}
+
+.quote p{
+    color:#bdb6ad;
+
+    font-size:15px;
+    line-height:1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#181613;
+
+    color:#817b73;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    font-size:13px;
+}
+
+footer strong{
+    color:#d6a756;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .navbar{
+        width:calc(100% - 24px);
+        top:12px;
+
+        height:64px;
+
+        padding:0 12px 0 18px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+
+        top:74px;
+        left:0;
+        right:0;
+
+        display:none;
+
+        flex-direction:column;
+        align-items:stretch;
+
+        padding:10px;
+
+        background:rgba(31,28,24,.97);
+
+        border:1px solid rgba(255,255,255,.10);
+        border-radius:16px;
+
+        box-shadow:0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:14px;
+    }
+
+    .social-btn{
+        margin-left:0;
+        text-align:center;
+    }
+
+    .hero{
+        min-height:680px;
+    }
+
+    .hero-content{
+        padding:130px 20px 70px;
+    }
+
+    .intro-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(2),
+    .card:nth-child(3),
+    .card:nth-child(4),
+    .card:nth-child(5){
+        grid-column:span 12;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(2){
+        min-height:430px;
+    }
+
+    .card:nth-child(3),
+    .card:nth-child(4),
+    .card:nth-child(5){
+        min-height:330px;
+    }
+}
+
+@media(max-width:520px){
+
+    .hero h1{
+        font-size:68px;
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+    }
+
+    .intro{
+        padding-top:70px;
+    }
+
+    .card{
+        border-radius:16px;
+    }
+
+    .card h3{
+        font-size:27px;
+    }
+
+    .card-content{
+        left:20px;
+        right:20px;
+        bottom:20px;
+    }
+
+    .card-arrow{
+        right:18px;
+        bottom:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Kilis<span>Tava</span>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html" class="active">
+            Ana Menü
+        </a>
+
+        <a href="mutfak.html">
+            Mutfak
+        </a>
+
+        <a href="tarih.html">
+            Tarih
+        </a>
+
+        <a href="gezilecek.html">
+            Gezilecek
+        </a>
+
+        <a href="foto.html">
+            Fotoğraflar
+        </a>
+
+        <a href="sosyal.html" class="social-btn">
+            Sosyal ↗
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="location">
+            📍 KİLİS • TÜRKİYE
+        </div>
+
+        <h1>
+            Kilis<span>Tava</span>
+        </h1>
+
+        <p class="hero-description">
+            Kilis'in eşsiz mutfağını, köklü tarihini,
+            gezilecek yerlerini ve şehirden hikâyeleri
+            tek bir yerde keşfet.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#kesfet" class="primary-btn">
+                Keşfetmeye Başla ↓
+            </a>
+
+            <a href="mutfak.html" class="secondary-btn">
+                Kilis Mutfağı →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro" id="kesfet">
+
+    <div class="container">
+
+        <div class="intro-top">
+
+            <div>
+
+                <div class="small-title">
+                    KilisTava
+                </div>
+
+                <h2>
+                    Kilis'i<br>
+                    keşfet.
+                </h2>
+
+            </div>
+
+            <p class="intro-text">
+                Güneydoğu'nun kendine özgü şehirlerinden Kilis'i
+                farklı yönleriyle tanımaya hazır mısın?
+                Aşağıdaki bölümlerden birini seç ve keşfe başla.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN CARDS ================= -->
+
+<section class="explore">
+
+    <div class="container">
+
+        <div class="cards">
+
+
+            <!-- MUTFAK -->
+
+            <a href="mutfak.html" class="card">
+
+                <img
+                    src="kilis-tava.jpg"
+                    alt="Kilis Tava"
+                >
+
+                <div class="card-content">
+
+                    <div class="card-number">
+                        01 — LEZZET
+                    </div>
+
+                    <h3>
+                        Kilis Mutfağı
+                    </h3>
+
+                    <p>
+                        Kilis Tava'dan Oruk'a,
+                        Cennet Çamuru'ndan Katmer'e
+                        şehrin unutulmaz lezzetleri.
+                    </p>
+
+                </div>
+
+                <div class="card-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <!-- TARİH -->
+
+            <a href="tarih.html" class="card">
+
+                <img
+                    src="oylum-hoyuk.jpg"
+                    alt="Kilis tarihi"
+                >
+
+                <div class="card-content">
+
+                    <div class="card-number">
+                        02 — GEÇMİŞ
+                    </div>
+
+                    <h3>
+                        Kilis Tarihi
+                    </h3>
+
+                    <p>
+                        Oylum Höyük'ten Mercidabık'a,
+                        Kilis'in binlerce yıllık geçmişine yolculuk.
+                    </p>
+
+                </div>
+
+                <div class="card-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <!-- GEZİLECEK -->
+
+            <a href="gezilecek.html" class="card">
+
+                <img
+                    src="ravanda-kalesi.jpg"
+                    alt="Ravanda Kalesi"
+                >
+
+                <div class="card-content">
+
+                    <div class="card-number">
+                        03 — KEŞİF
+                    </div>
+
+                    <h3>
+                        Gezilecek Yerler
+                    </h3>
+
+                    <p>
+                        Tarihi yapılar, höyükler,
+                        camiler ve Ravanda Kalesi.
+                    </p>
+
+                </div>
+
+                <div class="card-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <!-- FOTOĞRAFLAR -->
+
+            <a href="foto.html" class="card">
+
+                <img
+                    src="kilis2.jpg"
+                    alt="Kilis fotoğrafı"
+                >
+
+                <div class="card-content">
+
+                    <div class="card-number">
+                        04 — GÖRSEL
+                    </div>
+
+                    <h3>
+                        Fotoğraflar
+                    </h3>
+
+                    <p>
+                        Kilis'in sokaklarından
+                        manzaralarına uzanan fotoğraf seçkisi.
+                    </p>
+
+                </div>
+
+                <div class="card-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <!-- SOSYAL -->
+
+            <a href="sosyal.html" class="card">
+
+                <img
+                    src="pp.jpg"
+                    alt="KilisTava sosyal medya"
+                >
+
+                <div class="card-content">
+
+                    <div class="card-number">
+                        05 — SOSYAL
+                    </div>
+
+                    <h3>
+                        Sosyal Medya
+                    </h3>
+
+                    <p>
+                        @kilisshitpost'un Şubat 2026'da başlayan
+                        mizah yolculuğunu keşfet.
+                    </p>
+
+                </div>
+
+                <div class="card-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUOTE ================= -->
+
+<section class="quote">
+
+    <div class="quote-inner">
+
+        <div class="quote-mark">
+            “
+        </div>
+
+        <h2>
+            Bir şehir sadece gezilmez.<br>
+            Yaşanır, tadılır ve hatırlanır.
+        </h2>
+
+        <p>
+            KilisTava, Kilis'in mutfağından tarihine,
+            sokaklarından hikâyelerine kadar şehri
+            keşfetmek için hazırlandı.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>KilisTava</strong>
+    · Kilis'i keşfetmenin dijital adresi.
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+    const menu = document.getElementById("navLinks");
+
+    menu.classList.toggle("open");
+
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        document.getElementById("navLinks").classList.remove("open");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

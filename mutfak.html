@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kilis Mutfağı | KilisTava</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f1eb;
+    color:#29251f;
+    line-height:1.7;
+}
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(30,27,23,.96);
+    backdrop-filter:blur(10px);
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.18);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.navbar a{
+    color:#ddd;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#d6a756;
+}
+
+.hero{
+    min-height:470px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:60px 20px;
+    background:
+        linear-gradient(rgba(20,16,12,.48),rgba(20,16,12,.82)),
+        url("kilis-tava.jpg") center/cover;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:30px;
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:20px;
+    background:rgba(255,255,255,.08);
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:12px;
+    letter-spacing:-2px;
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+    color:#eee;
+    font-size:18px;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.intro{
+    margin-top:-55px;
+    position:relative;
+    background:white;
+    border-radius:22px;
+    padding:40px;
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
+}
+
+.intro h2{
+    font-size:29px;
+    margin-bottom:12px;
+}
+
+.intro p{
+    color:#666;
+}
+
+.section{
+    padding:75px 0 10px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title span{
+    color:#a8782d;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:39px;
+    margin-top:7px;
+}
+
+.section-title p{
+    color:#777;
+    max-width:650px;
+    margin:10px auto;
+}
+
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+}
+
+.food-card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.09);
+    border:1px solid #eee;
+    transition:.35s;
+}
+
+.food-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+.food-image{
+    height:270px;
+    overflow:hidden;
+}
+
+.food-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.food-card:hover .food-image img{
+    transform:scale(1.06);
+}
+
+.food-content{
+    padding:28px;
+}
+
+.food-tag{
+    display:inline-block;
+    color:#a8782d;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:7px;
+}
+
+.food-content h3{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.food-content p{
+    color:#666;
+    font-size:15px;
+}
+
+.feature{
+    margin:85px 0;
+    min-height:420px;
+    display:flex;
+    background:#25211c;
+    color:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 45px rgba(0,0,0,.18);
+}
+
+.feature-image{
+    width:45%;
+    background:
+        linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.2)),
+        url("kilis-tava.jpg") center/cover;
+}
+
+.feature-content{
+    width:55%;
+    padding:55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.feature-content .small{
+    color:#d6a756;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.feature-content h2{
+    font-size:40px;
+    margin:8px 0 15px;
+}
+
+.feature-content p{
+    color:#ddd;
+}
+
+.highlight{
+    margin-top:22px;
+    padding:14px 18px;
+    border-left:4px solid #d6a756;
+    background:rgba(255,255,255,.07);
+    color:#eee;
+}
+
+.ingredients{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:80px;
+}
+
+.ingredient{
+    background:white;
+    padding:28px 20px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.ingredient:hover{
+    transform:translateY(-5px);
+}
+
+.ingredient .icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.ingredient h3{
+    font-size:17px;
+}
+
+.ingredient p{
+    color:#777;
+    font-size:13px;
+}
+
+/* TATLILAR */
+
+.dessert{
+    background:#29251f;
+    color:white;
+    border-radius:25px;
+    padding:50px;
+    margin-bottom:75px;
+}
+
+.dessert-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.dessert h2{
+    font-size:35px;
+}
+
+.dessert-top p{
+    color:#ccc;
+}
+
+.dessert-tag{
+    background:#a8782d;
+    color:white;
+    padding:9px 17px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.dessert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.dessert-card{
+    background:#fff;
+    color:#29251f;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.dessert-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 16px 35px rgba(0,0,0,.25);
+}
+
+.dessert-image{
+    height:230px;
+    overflow:hidden;
+}
+
+.dessert-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.dessert-card:hover .dessert-image img{
+    transform:scale(1.07);
+}
+
+.dessert-content{
+    padding:22px;
+}
+
+.dessert-content span{
+    color:#a8782d;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.dessert-content h3{
+    font-size:24px;
+    margin:5px 0 7px;
+}
+
+.dessert-content p{
+    color:#666;
+    font-size:14px;
+}
+
+.info{
+    background:white;
+    border-radius:22px;
+    padding:38px;
+    margin-bottom:80px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.info h2{
+    font-size:29px;
+    margin-bottom:12px;
+}
+
+.info p{
+    color:#666;
+}
+
+footer{
+    background:#211e1a;
+    color:#aaa;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer strong{
+    color:white;
+}
+
+@media(max-width:800px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .navbar div:last-child a{
+        margin-left:8px;
+        font-size:12px;
+    }
+
+    .hero{
+        min-height:390px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .intro{
+        margin-top:-35px;
+        padding:27px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .food-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature{
+        flex-direction:column;
+    }
+
+    .feature-image{
+        width:100%;
+        min-height:260px;
+    }
+
+    .feature-content{
+        width:100%;
+        padding:32px;
+    }
+
+    .feature-content h2{
+        font-size:31px;
+    }
+
+    .ingredients{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .dessert{
+        padding:30px 20px;
+    }
+
+    .dessert-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .dessert-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dessert-image{
+        height:250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">KilisTava</a>
+
+    <div>
+        <a href="index.html">Ana Menü</a>
+        <a href="tarih.html">Tarih</a>
+        <a href="fotograflar.html">Fotoğraflar</a>
+        <a href="sosyal.html">Sosyal</a>
+    </div>
+
+</nav>
+
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🍽️ KİLİS • LEZZETLERİ
+        </div>
+
+        <h1>Kilis Mutfağı</h1>
+
+        <p>
+            Etin, bulgurun, zeytinyağının ve baharatların
+            buluştuğu eşsiz bir mutfak kültürü.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="intro">
+
+    <h2>Bir Şehrin Sofraya Yansıyan Kültürü</h2>
+
+    <p>
+        Kilis mutfağı; Türk mutfağının özelliklerini taşırken
+        Halep mutfağının etkilerini de barındıran zengin bir
+        gastronomi kültürüdür. Et, bulgur, zeytinyağı ve
+        baharatlar mutfağın temel unsurları arasında yer alır.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>KİLİS'İN ÖNE ÇIKAN LEZZETLERİ</span>
+
+        <h2>Sofranın Yıldızları</h2>
+
+        <p>
+            Kilis'in kendine özgü yemeklerinden bazıları.
+        </p>
+
+    </div>
+
+
+    <div class="food-grid">
+
+        <div class="food-card">
+
+            <div class="food-image">
+                <img src="kilis-tava.jpg" alt="Kilis Tava">
+            </div>
+
+            <div class="food-content">
+
+                <span class="food-tag">COĞRAFİ İŞARETLİ</span>
+
+                <h3>Kilis Tava</h3>
+
+                <p>
+                    Orta yağlı kıyma, soğan, biber ve domatesin
+                    tepside bir araya geldiği, Kilis ile
+                    özdeşleşmiş yöresel yemeklerden biridir.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+            <div class="food-image">
+                <img src="oruk.jpg" alt="Kilis Oruk">
+            </div>
+
+            <div class="food-content">
+
+                <span class="food-tag">GELENEKSEL LEZZET</span>
+
+                <h3>Oruk</h3>
+
+                <p>
+                    Bulgur, et, soğan ve çeşitli baharatlarla
+                    hazırlanan Oruk, Kilis mutfağının sevilen
+                    geleneksel yemeklerinden biridir.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+            <div class="food-image">
+                <img src="cive.jpg" alt="Şıhılmahşe">
+            </div>
+
+            <div class="food-content">
+
+                <span class="food-tag">COĞRAFİ İŞARETLİ</span>
+
+                <h3>Şıhılmahşe</h3>
+
+                <p>
+                    İç harçla doldurulan acurların sosla
+                    pişirilmesiyle hazırlanan özel bir Kilis
+                    yemeğidir.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+            <div class="food-image">
+                <img src="kesmek.jpg" alt="Keşkek">
+            </div>
+
+            <div class="food-content">
+
+                <span class="food-tag">GELENEKSEL YEMEK</span>
+
+                <h3>Keşkek</h3>
+
+                <p>
+                    Kilis mutfağında yer alan geleneksel
+                    yemeklerden biri olan keşkek, özel gün
+                    sofralarında da karşımıza çıkar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="feature">
+
+    <div class="feature-image"></div>
+
+    <div class="feature-content">
+
+        <span class="small">KİLİS'İN İMZA LEZZETİ</span>
+
+        <h2>Kilis Tava</h2>
+
+        <p>
+            Kilis Tava; kıyma, soğan, biber ve domatesin
+            özel şekilde hazırlanıp tepside pişirilmesiyle
+            yapılan yöresel bir yemektir.
+        </p>
+
+        <div class="highlight">
+            🍅 Geleneksel tariflerde farklı sebzeler de
+            kullanılabilir.
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>KİLİS MUTFAĞININ TEMELİ</span>
+
+        <h2>Dört Temel Lezzet</h2>
+
+        <p>
+            Kilis yemeklerinde sık kullanılan temel ürünler.
+        </p>
+
+    </div>
+
+
+    <div class="ingredients">
+
+        <div class="ingredient">
+            <div class="icon">🥩</div>
+            <h3>Et</h3>
+            <p>Birçok geleneksel yemeğin temel malzemelerinden.</p>
+        </div>
+
+        <div class="ingredient">
+            <div class="icon">🌾</div>
+            <h3>Bulgur</h3>
+            <p>Köfte ve pilav çeşitlerinde önemli bir yere sahip.</p>
+        </div>
+
+        <div class="ingredient">
+            <div class="icon">🫒</div>
+            <h3>Zeytinyağı</h3>
+            <p>Kilis mutfağının vazgeçilmez ürünlerinden biri.</p>
+        </div>
+
+        <div class="ingredient">
+            <div class="icon">🌶️</div>
+            <h3>Baharat</h3>
+            <p>Yemeklere karakterini veren önemli unsurlardan.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TATLI BÖLÜMÜ -->
+
+<section class="dessert">
+
+    <div class="dessert-top">
+
+        <div>
+
+            <h2>🍯 Tatlı Bir Final</h2>
+
+            <p>
+                Kilis mutfağının sevilen yöresel tatlıları.
+            </p>
+
+        </div>
+
+        <div class="dessert-tag">
+            KİLİS TATLILARI
+        </div>
+
+    </div>
+
+
+    <div class="dessert-grid">
+
+
+        <!-- CENNET ÇAMURU -->
+
+        <div class="dessert-card">
+
+            <div class="dessert-image">
+
+                <img src="cennet.jpg" alt="Cennet Çamuru">
+
+            </div>
+
+            <div class="dessert-content">
+
+                <span>COĞRAFİ İŞARETLİ</span>
+
+                <h3>Cennet Çamuru</h3>
+
+                <p>
+                    Kilis'in öne çıkan geleneksel tatlılarından
+                    biri olan Cennet Çamuru.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- KATMER -->
+
+        <div class="dessert-card">
+
+            <div class="dessert-image">
+
+                <img src="katmer.jpg" alt="Kilis Katmeri">
+
+            </div>
+
+            <div class="dessert-content">
+
+                <span>COĞRAFİ İŞARETLİ</span>
+
+                <h3>Kilis Katmeri</h3>
+
+                <p>
+                    Kilis mutfağının geleneksel ve coğrafi işaretli
+                    tatlılarından biri olan Katmer.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- GEREBİÇ -->
+
+        <div class="dessert-card">
+
+            <div class="dessert-image">
+
+                <img src="gerebic.jpg" alt="Gerebiç">
+
+            </div>
+
+            <div class="dessert-content">
+
+                <span>GELENEKSEL TATLI</span>
+
+                <h3>Gerebiç</h3>
+
+                <p>
+                    Özellikle bayramlarda hazırlanan, Kilis'in
+                    geleneksel tatlılarından biri olan Gerebiç.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="info">
+
+    <h2>🌿 Kilis Mutfağını Özel Yapan</h2>
+
+    <p>
+        Kilis mutfağında et, bulgur, zeytinyağı ve baharatlar
+        önemli bir yere sahiptir. Şehrin yöresel yemeklerinin
+        yanında Kilis Katmeri, Cennet Çamuru ve Gerebiç gibi
+        tatlıları da mutfak kültürünün önemli parçalarıdır.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        <strong>KilisTava</strong> • Kilis'in lezzetlerini keşfet.
+    </p>
+
+    <p>© 2026 KilisTava</p>
+
+</footer>
+
+</body>
+</html>

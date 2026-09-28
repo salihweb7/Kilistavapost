@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gezilecek Yerler - KilisTava</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f1ec;
+            color: #292929;
+        }
+
+        /* ÜST KISIM */
+        header {
+            background:
+                linear-gradient(rgba(30, 20, 15, 0.65), rgba(30, 20, 15, 0.65)),
+                url("kilis-manzara.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin: 0 0 12px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* TANITIM */
+        .tanitim {
+            max-width: 850px;
+            margin: 40px auto 25px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .tanitim h2 {
+            color: #7b301c;
+            font-size: 30px;
+        }
+
+        .tanitim p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* YERLER */
+        .yerler {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 28px;
+        }
+
+        .yer {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px #ccc;
+            transition: 0.3s;
+        }
+
+        .yer:hover {
+            transform: translateY(-7px);
+        }
+
+        .yer img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .bilgi {
+            padding: 22px;
+        }
+
+        .bilgi h3 {
+            margin: 0 0 10px;
+            color: #7b301c;
+            font-size: 23px;
+        }
+
+        .bilgi p {
+            line-height: 1.65;
+            color: #555;
+        }
+
+        .etiket {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 11px;
+            border-radius: 20px;
+            background: #ead7b7;
+            color: #6d2a19;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* ANA MENÜ */
+        .geri {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 14px 24px;
+
+            background: #6d2417;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .geri:hover {
+            background: #943521;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>📍 Kilis'te Gezilecek Yerler</h1>
+
+    <p>
+        Tarihi yapıları, doğal güzellikleri ve eşsiz şehir atmosferiyle Kilis
+    </p>
+
+</header>
+
+
+<section class="tanitim">
+
+    <h2>🏛️ Kilis'i Keşfet</h2>
+
+    <p>
+        Kilis, tarih boyunca birçok medeniyete ev sahipliği yapmış,
+        tarihi yapıları ve kültürel mirasıyla dikkat çeken bir şehirdir.
+        Şehirde geçmişten günümüze ulaşan camiler, konaklar, höyükler
+        ve doğal güzellikler bulunmaktadır.
+    </p>
+
+</section>
+
+
+<section class="yerler">
+
+
+    <!-- OYLUM HÖYÜK -->
+
+    <div class="yer">
+
+        <img src="oylum-hoyuk.jpg" alt="Oylum Höyük">
+
+        <div class="bilgi">
+
+            <span class="etiket">🏺 Tarihi Alan</span>
+
+            <h3>Oylum Höyük</h3>
+
+            <p>
+                Kilis'in önemli arkeolojik alanlarından biridir.
+                Yapılan kazılarda farklı dönemlere ait önemli
+                arkeolojik buluntular ortaya çıkarılmıştır.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ULU CAMİ -->
+
+    <div class="yer">
+
+        <img src="ulu-cami.jpg" alt="Kilis Ulu Camii">
+
+        <div class="bilgi">
+
+            <span class="etiket">🕌 Tarihi Yapı</span>
+
+            <h3>Kilis Ulu Camii</h3>
+
+            <p>
+                Kilis'in tarihi camilerinden biri olan Ulu Camii,
+                şehrin tarihi dokusunu yansıtan önemli yapılardan
+                biridir.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CANBOLAT PAŞA -->
+
+    <div class="yer">
+
+        <img src="canbolat-pasa.jpg" alt="Canbolat Paşa Camii">
+
+        <div class="bilgi">
+
+            <span class="etiket">🕌 Osmanlı Dönemi</span>
+
+            <h3>Canbolat Paşa Camii</h3>
+
+            <p>
+                Osmanlı döneminden günümüze ulaşan önemli tarihi
+                yapılardan biridir. Mimari özellikleriyle Kilis'in
+                kültürel mirasının önemli parçalarındandır.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- KİLİS KONAKLARI -->
+
+    <div class="yer">
+
+        <img src="kilis-konaklari.jpg" alt="Kilis Konakları">
+
+        <div class="bilgi">
+
+            <span class="etiket">🏠 Kültürel Miras</span>
+
+            <h3>Tarihi Kilis Konakları</h3>
+
+            <p>
+                Geleneksel Kilis mimarisini yansıtan tarihi konaklar,
+                taş işçiliği ve kendine özgü mimari özellikleriyle
+                şehrin geçmişinden izler taşır.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- KİLİS MÜZESİ -->
+
+    <div class="yer">
+
+        <img src="kilis-muzesi.jpg" alt="Kilis Müzesi">
+
+        <div class="bilgi">
+
+            <span class="etiket">🏺 Müze</span>
+
+            <h3>Kilis Müzesi</h3>
+
+            <p>
+                Kilis ve çevresinin tarihini yansıtan arkeolojik
+                eserlerin görülebileceği kültürel mekânlardan biridir.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="yer">
+
+    <img src="ravanda-kalesi.jpg" alt="Ravanda Kalesi">
+
+    <div class="bilgi">
+
+        <span class="etiket">🏰 Tarihi Kale</span>
+
+        <h3>Ravanda Kalesi</h3>
+
+        <p>
+            Kilis'in önemli tarihi yapılarından biri olan Ravanda Kalesi,
+            bölgenin geçmişine ışık tutan tarihi mekânlardan biridir.
+            Doğal çevresi ve tarihi dokusuyla dikkat çeker.
+        </p>
+
+    </div>
+
+    </div>
+
+</section>
+
+
+<a class="geri" href="index.html">
+    🏠 Ana Menüye Dön
+</a>
+
+
+</body>
+</html>

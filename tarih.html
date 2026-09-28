@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kilis'in Tarihi | KilisTava</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f1eb;
+    color:#29251f;
+    line-height:1.7;
+}
+
+/* NAVBAR */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(30,27,23,0.96);
+    backdrop-filter:blur(10px);
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.18);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.navbar a{
+    color:#ddd;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#d6a756;
+}
+
+/* HERO */
+.hero{
+    min-height:430px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:60px 20px;
+    background:
+        linear-gradient(rgba(20,17,13,.62),rgba(20,17,13,.78)),
+        url("kilis1.jpg") center/cover;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:30px;
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:20px;
+    background:rgba(255,255,255,.08);
+}
+
+.hero h1{
+    font-size:58px;
+    margin-bottom:12px;
+    letter-spacing:-2px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#eee;
+    font-size:18px;
+}
+
+/* INTRO */
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.intro{
+    margin-top:-55px;
+    position:relative;
+    background:white;
+    border-radius:22px;
+    padding:38px;
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
+}
+
+.intro h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.intro p{
+    color:#666;
+}
+
+/* SECTION */
+.section{
+    padding:70px 0 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title span{
+    color:#a8782d;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-top:7px;
+}
+
+.section-title p{
+    color:#777;
+    max-width:650px;
+    margin:10px auto;
+}
+
+/* TIMELINE */
+.timeline{
+    position:relative;
+    max-width:950px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:#d6a756;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:15px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:28px;
+    width:18px;
+    height:18px;
+    background:#a8782d;
+    border:4px solid #f4f1eb;
+    border-radius:50%;
+    box-shadow:0 0 0 3px #d6a756;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-9px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-9px;
+}
+
+.timeline-card{
+    background:white;
+    padding:25px;
+    border-radius:17px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+    border:1px solid #eee;
+}
+
+.timeline-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,.13);
+}
+
+.year{
+    display:inline-block;
+    color:#a8782d;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.timeline-card h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.timeline-card p{
+    color:#666;
+    font-size:15px;
+}
+
+/* MERCİDABIK */
+.feature{
+    margin:80px 0;
+    border-radius:25px;
+    overflow:hidden;
+    min-height:400px;
+    display:flex;
+    background:#25211c;
+    color:white;
+    box-shadow:0 15px 45px rgba(0,0,0,.18);
+}
+
+.feature-image{
+    width:45%;
+    background:
+        linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.25)),
+        url("ravanda-kalesi.jpg") center/cover;
+}
+
+.feature-content{
+    width:55%;
+    padding:50px;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.feature-content .small{
+    color:#d6a756;
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:13px;
+}
+
+.feature-content h2{
+    font-size:36px;
+    margin:8px 0 15px;
+}
+
+.feature-content p{
+    color:#ddd;
+}
+
+.date-box{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    border-left:4px solid #d6a756;
+    background:rgba(255,255,255,.07);
+    color:#fff;
+    font-weight:bold;
+}
+
+/* MİLLİ MÜCADELE */
+.milli{
+    background:white;
+    border-radius:25px;
+    padding:45px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    margin-bottom:70px;
+}
+
+.milli-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    margin-bottom:30px;
+}
+
+.milli h2{
+    font-size:34px;
+}
+
+.milli .tag{
+    background:#29251f;
+    color:white;
+    padding:9px 16px;
+    border-radius:30px;
+    font-size:13px;
+}
+
+.milli p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+/* KARTLAR */
+.facts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:80px;
+}
+
+.fact{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    border-top:4px solid #a8782d;
+}
+
+.fact .number{
+    font-size:35px;
+    font-weight:bold;
+    color:#a8782d;
+}
+
+.fact h3{
+    margin:7px 0;
+}
+
+.fact p{
+    color:#777;
+    font-size:14px;
+}
+
+/* FOOTER */
+footer{
+    background:#211e1a;
+    color:#aaa;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer strong{
+    color:white;
+}
+
+/* MOBİL */
+@media(max-width:800px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .navbar div:last-child a{
+        margin-left:8px;
+        font-size:12px;
+    }
+
+    .hero{
+        min-height:380px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .intro{
+        margin-top:-35px;
+        padding:25px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .timeline::before{
+        left:12px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        left:0;
+        text-align:left;
+        padding-left:45px;
+        padding-right:0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:3px;
+        right:auto;
+    }
+
+    .feature{
+        flex-direction:column;
+    }
+
+    .feature-image,
+    .feature-content{
+        width:100%;
+    }
+
+    .feature-image{
+        min-height:250px;
+    }
+
+    .feature-content{
+        padding:30px;
+    }
+
+    .feature-content h2{
+        font-size:29px;
+    }
+
+    .milli{
+        padding:28px;
+    }
+
+    .milli-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .facts{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="index.html" class="logo">KilisTava</a>
+
+    <div>
+        <a href="index.html">Ana Menü</a>
+        <a href="fotograflar.html">Fotoğraflar</a>
+        <a href="sosyal.html">Sosyal</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">📜 TARİH • KİLİS</div>
+
+        <h1>Kilis'in Tarihi</h1>
+
+        <p>
+            Binlerce yıllık geçmişi, farklı medeniyetleri ve önemli
+            tarihi olaylarıyla Kilis'in geçmişine kısa bir yolculuk.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- INTRO -->
+    <section class="intro">
+
+        <h2>Binlerce Yıllık Bir Geçmiş</h2>
+
+        <p>
+            Kilis, Anadolu ile Suriye ve Mezopotamya arasındaki önemli
+            geçiş yollarından biri üzerinde bulunması nedeniyle tarih
+            boyunca birçok medeniyete ev sahipliği yapmıştır.
+            Oylum Höyük'teki arkeolojik çalışmalar, bölgedeki yerleşim
+            tarihinin Geç Kalkolitik Çağ'a, yani yaklaşık M.Ö. 3500–3000
+            yıllarına kadar uzandığını göstermektedir.
+        </p>
+
+    </section>
+
+
+    <!-- TARİHİ DÖNEMLER -->
+    <section class="section">
+
+        <div class="section-title">
+            <span>GEÇMİŞTEN GÜNÜMÜZE</span>
+            <h2>Tarihin İzinde</h2>
+            <p>
+                Kilis'in farklı dönemlerde geçirdiği önemli değişimler.
+            </p>
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="year">M.Ö. 3500–3000</span>
+
+                    <h3>İlk Yerleşimler</h3>
+
+                    <p>
+                        Oylum Höyük'teki buluntular, Kilis yöresinde
+                        yerleşimin Geç Kalkolitik Çağ'a kadar uzandığını
+                        göstermektedir.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="year">Antik Çağ</span>
+
+                    <h3>Birçok Medeniyet</h3>
+
+                    <p>
+                        Bölge; Hitit, Arami, Asur, Pers, Makedon,
+                        Selevkos ve Roma gibi farklı uygarlıkların
+                        egemenliği altında kaldı.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="year">636</span>
+
+                    <h3>İslam Dönemi</h3>
+
+                    <p>
+                        Hz. Ömer döneminde bölge İslam topraklarına
+                        katıldı ve Kilis sınır bölgesindeki önemli
+                        yerleşimlerden biri haline geldi.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="year">11–16. Yüzyıl</span>
+
+                    <h3>Türk ve Memlük Dönemi</h3>
+
+                    <p>
+                        Bölge farklı Türk devletleri ve Memlüklerin
+                        hâkimiyetinde kaldı. Kilis ve çevresindeki
+                        kaleler stratejik önem taşıdı.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- MERCİDABIK -->
+    <section class="feature">
+
+        <div class="feature-image"></div>
+
+        <div class="feature-content">
+
+            <span class="small">TARİHİN DÖNÜM NOKTASI</span>
+
+            <h2>Mercidabık Savaşı</h2>
+
+            <p>
+                24 Ağustos 1516'da Kilis yöresindeki Dabık düzlüğünde
+                Osmanlı Devleti ile Memlük Devleti arasında gerçekleşen
+                savaş, bölgenin Osmanlı hâkimiyetine girmesinde önemli
+                bir dönüm noktası oldu.
+            </p>
+
+            <div class="date-box">
+                ⚔️ 24 Ağustos 1516
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OSMANLI -->
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>OSMANLI DÖNEMİ</span>
+
+            <h2>Kilis'in Gelişimi</h2>
+
+            <p>
+                Osmanlı döneminde Kilis önemli bir yerleşim ve ticaret
+                merkezi olarak gelişti.
+            </p>
+
+        </div>
+
+
+        <div class="milli">
+
+            <div class="milli-top">
+
+                <h2>Canboladoğulları Dönemi</h2>
+
+                <div class="tag">16. YÜZYIL</div>
+
+            </div>
+
+            <p>
+                Kanuni Sultan Süleyman döneminde Kilis ve yöresi
+                Canbolad Paşa'ya yurtluk/ocaklık olarak verildi.
+            </p>
+
+            <p>
+                Bu dönemde şehirde cami, tekke, bedesten, kervansaray,
+                pazar ve hamam gibi çeşitli yapılar inşa edildi.
+                Böylece Kilis'in sosyal ve ekonomik hayatı gelişti.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MİLLİ MÜCADELE -->
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>1918 – 1921</span>
+
+            <h2>Milli Mücadele Döneminde Kilis</h2>
+
+            <p>
+                İşgale karşı verilen mücadele Kilis tarihinin en önemli
+                dönemlerinden biridir.
+            </p>
+
+        </div>
+
+
+        <div class="milli">
+
+            <div class="milli-top">
+
+                <h2>Kilis'in Kurtuluş Mücadelesi</h2>
+
+                <div class="tag">MİLLİ MÜCADELE</div>
+
+            </div>
+
+            <p>
+                I. Dünya Savaşı sonrasında Kilis önce İngilizlerin,
+                ardından Fransızların işgali altında kaldı.
+            </p>
+
+            <p>
+                İşgale karşı bölgede direniş örgütleri oluşturuldu.
+                Şahin Bey ve Kuvayı Milliye birliklerinin mücadelesi,
+                Kilis ve çevresindeki direnişin önemli parçalarından
+                biri oldu.
+            </p>
+
+            <p>
+                Ankara İtilafnamesi'nin ardından Fransız işgal güçleri
+                bölgeden çekildi ve Kilis 1921 yılında işgalden kurtuldu.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ÖNEMLİ TARİHLER -->
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>ÖNEMLİ TARİHLER</span>
+
+            <h2>Kilis Tarihinden Notlar</h2>
+
+        </div>
+
+
+        <div class="facts">
+
+            <div class="fact">
+
+                <div class="number">1516</div>
+
+                <h3>Mercidabık</h3>
+
+                <p>
+                    Mercidabık Savaşı'nın gerçekleştiği yıl.
+                </p>
+
+            </div>
+
+
+            <div class="fact">
+
+                <div class="number">1863</div>
+
+                <h3>Belediye</h3>
+
+                <p>
+                    Kilis belediyesinin kuruluş yılı.
+                </p>
+
+            </div>
+
+
+            <div class="fact">
+
+                <div class="number">1995</div>
+
+                <h3>İl Oluşu</h3>
+
+                <p>
+                    Kilis, 6 Haziran 1995'te Türkiye'nin 79. ili oldu.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        <strong>KilisTava</strong> • Kilis'i keşfet, tarihini öğren.
+    </p>
+
+    <p>© 2026 KilisTava</p>
+
+</footer>
+
+</body>
+</html>
